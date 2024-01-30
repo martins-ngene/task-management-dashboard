@@ -1,0 +1,15 @@
+/** @format */
+/* Navbar Container */
+.container {
+  @apply flex items-center justify-around h-[100px] border-b border-b-[#131313];
+}
+
+/* Links Container */
+/* .links_container {
+  @apply text-[#1D1D1C] font-semibold hidden md:flex items-center justify-between w-[60%] xl:w-[50%];
+} */
+
+/* Menu Container */
+.menu_container {
+  @apply relative w-[40px] h-[40px] block md:hidden;
+}

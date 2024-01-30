@@ -1,0 +1,21 @@
+/** @format */
+/* Menu Container */
+.menu_container {
+  @apply fixed left-0 right-0 top-[4rem] w-full h-full flex items-center justify-center;
+  background: linear-gradient(
+    109.46deg,
+    rgba(201, 201, 201, 0.8) 1.57%,
+    rgba(196, 196, 196, 0.1) 100%
+  );
+  backdrop-filter: blur(25px);
+}
+
+/* Menu Links Container */
+.links_container {
+  @apply mt-8 h-full w-[60%] flex flex-col items-center;
+}
+
+/* Link */
+.link {
+  @apply my-2;
+}

@@ -1,0 +1,40 @@
+/** @format */
+
+.filled_btn,
+.outlined_btn {
+  @apply rounded-[100px] font-medium text-[0.5rem] md:text-[1rem] px-4 py-2;
+}
+/* Filled Button styles */
+.filled_btn {
+  @apply bg-[#1D1D1C] text-white;
+}
+
+/* Outlined Button styles */
+.outlined_btn {
+  @apply bg-white border border-[#1D1D1C] flex items-center justify-between;
+}
+
+/* Add New Card Btn Container */
+.new_card_btn_container {
+  @apply ml-8 flex items-center justify-center border-2 border-dashed border-[#6B6F7B] rounded-xl w-[315px] h-[184px];
+}
+
+/* Items Container to position items within the button */
+.new_card_items_container {
+  @apply flex flex-col items-center justify-between;
+}
+
+/* Add New Card Text */
+.new_card_text {
+  @apply font-medium text-[#6B6F7B] text-[1rem] leading-5 mt-2;
+}
+
+/* Sign in with Gooogle Button */
+.google_btn {
+  @apply w-full flex items-center justify-center rounded-lg border border-[#DADADA] font-medium text-[0.5rem] md:text-[1rem] px-4 py-2;
+}
+
+/* Submit Button */
+.submit_btn {
+  @apply w-full flex items-center justify-center border border-[#1D1D1C]  bg-[#1D1D1C] text-white rounded-lg font-medium text-[0.5rem] md:text-[1rem] px-4 py-2;
+}

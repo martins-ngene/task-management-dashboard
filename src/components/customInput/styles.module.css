@@ -1,0 +1,18 @@
+/** @format */
+
+/* Styles for Label on custom input */
+.container {
+  @apply relative;
+}
+
+.label {
+  @apply font-[600] text-[1rem] lg:text-[1.2rem] leading-[120%];
+}
+
+.input {
+  @apply lg:text-[1rem] outline-none w-full border border-[#E1E1E1] rounded-lg h-[15px] px-4 py-4;
+}
+
+.search_button {
+  @apply absolute top-[47%] right-[3%];
+}

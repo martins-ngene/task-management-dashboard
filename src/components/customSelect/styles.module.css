@@ -1,0 +1,35 @@
+/** @format */
+/* Container styles */
+.container {
+  @apply w-full relative;
+}
+
+/* Dropdown Styles */
+.dropDown {
+  @apply flex items-center justify-between w-full h-[10px] border border-[#E1E1E1] rounded-lg px-4 py-4;
+}
+
+/*Select Button Styles */
+/* .selectBtn {
+  @apply relative;
+} */
+
+/* Select Items Styles */
+.itemContainer {
+  @apply absolute w-full h-auto bg-white border-[0.5px] py-3 px-3 rounded-[0.625rem];
+  box-shadow: 0px 4px 18px rgba(236, 134, 39, 0.1);
+}
+
+.currentItem,
+.item {
+  @apply font-[500] leading-[120%] text-[#333];
+}
+
+.item {
+  @apply cursor-pointer text-[1rem] mb-2;
+}
+
+/* Styles for Label on custom input */
+.label {
+  @apply font-[600] text-[1rem] lg:text-[1.2rem] leading-[120%];
+}

@@ -1,0 +1,12 @@
+/** @format */
+
+/* Modal Container */
+.modal_container {
+  @apply z-50 fixed left-0 right-0 top-0 w-full h-full flex items-center justify-center;
+  background: linear-gradient(
+    109.46deg,
+    rgba(201, 201, 201, 0.8) 1.57%,
+    rgba(196, 196, 196, 0.1) 100%
+  );
+  backdrop-filter: blur(25px);
+}

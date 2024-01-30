@@ -1,0 +1,62 @@
+/** @format */
+/* Container */
+.container {
+  @apply mx-auto lg:mx-0 w-[80%] lg:w-full h-[100vh] flex items-center justify-center;
+}
+
+/* Form Container */
+.form_container {
+  @apply bg-white flex flex-col w-full lg:w-[35%] h-[80%] rounded-[1rem] px-8 py-12;
+}
+
+/* Media query for form container box shadow */
+@media screen and (min-width: 1024px) {
+  .form_container {
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Header */
+.header {
+  @apply mt-4 text-[1.25rem] md:text-[2.625rem] font-normal leading-[24px] md:leading-[49px] text-[#111];
+}
+
+/* Welcome Text */
+.welcome_text {
+  @apply my-4 text-[0.8rem] md:text-[1rem] font-normal leading-[14px] md:leading-[19px] text-[#6B6F7B];
+}
+
+/* Label */
+.label {
+  @apply font-[400] text-[1rem] lg:text-[1rem] leading-[120%];
+}
+
+/* Input */
+.input {
+  @apply mb-4 lg:text-[1rem] outline-none w-full border border-[#E1E1E1] rounded-lg h-[15px] px-5 py-5;
+}
+
+/*  */
+.cta_container {
+  @apply mt-4 flex items-center;
+}
+/* Call TO Sign Up Text */
+.cta {
+  @apply leading-[16px] text-[#111] mr-4;
+}
+
+/* Sign up Text */
+.signup_text {
+  @apply font-[600] text-[0.875rem] leading-[16px] text-[#111] cursor-pointer underline;
+}
+
+/* Name Container */
+.name_container {
+  @apply flex flex-col lg:flex-row items-center justify-between;
+}
+
+/* First & Last Names Styles */
+.first_name,
+.last_name {
+  @apply w-full lg:w-[45%];
+}
