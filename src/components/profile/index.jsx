@@ -1,15 +1,20 @@
 import Image from "next/image";
-import React from "react";
 
+import styles from "./styles.module.css";
 const Profile = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <div>
-        <Image src='/avatar.png' width={50} height={50} />
+        <Image
+          className={styles.image}
+          src='/avatar.jpg'
+          width={50}
+          height={50}
+        />
       </div>
-      <div>
-        <h2>John Doe</h2>
-        <p>example@email.com</p>
+      <div className={styles.details}>
+        <h2 className={styles.name}>John Doe</h2>
+        <p className={styles.email}>johndoe@email.com</p>
       </div>
     </div>
   );

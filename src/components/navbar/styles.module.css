@@ -1,7 +1,7 @@
 /** @format */
 /* Navbar Container */
 .container {
-  @apply flex items-center justify-around h-[100px] border-b border-b-[#131313];
+  @apply flex items-center justify-around h-[80px] border-b border-b-[#E1E1E1];
 }
 
 /* Links Container */
@@ -12,4 +12,9 @@
 /* Menu Container */
 .menu_container {
   @apply relative w-[40px] h-[40px] block md:hidden;
+}
+
+/* RouteName  */
+.routeName {
+  @apply font-medium text-[#aaa] text-[20px];
 }

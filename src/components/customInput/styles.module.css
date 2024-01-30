@@ -14,5 +14,5 @@
 }
 
 .search_button {
-  @apply absolute top-[47%] right-[3%];
+  @apply absolute top-[20%] right-[3%];
 }

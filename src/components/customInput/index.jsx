@@ -25,7 +25,7 @@ const Input = ({
         value={inputValue}
       />
       <button className={styles.search_button}>
-        <Image src='/search.svg' alt='search icon' width={32} height={32} />
+        <Image src='/search.svg' alt='search icon' width={24} height={24} />
       </button>
     </div>
   );

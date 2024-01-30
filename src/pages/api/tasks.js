@@ -1,14 +1,14 @@
-export default function handler(req, res) {
+import prisma from "../../../lib/prisma";
+
+export default async function handler(req, res) {
   if (req.method === "GET") {
     // Process a POST request
     try {
-      let response = "Hello World!";
-      res
-        .status(200)
-        .json({
-          response: response,
-          message: "Message was successfully sent!",
-        });
+      const allUsers = await prisma.user.findMany();
+
+      res.status(200).json({
+        response: allUsers,
+      });
     } catch (error) {
       res.status(504).json({
         name: error.name,

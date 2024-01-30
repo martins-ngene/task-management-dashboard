@@ -1,3 +1,7 @@
-/* .container {
+.container {
   @apply bg-white;
-} */
+}
+
+.cardContainer {
+  @apply flex flex-wrap items-center justify-between px-[5rem] pb-[5rem];
+}

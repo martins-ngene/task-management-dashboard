@@ -1,0 +1,22 @@
+/* Container */
+.container {
+  @apply flex items-center justify-between;
+}
+
+.image {
+  @apply rounded-full;
+}
+
+/* Details */
+.details {
+  @apply ml-0 md:ml-4;
+}
+/* Name */
+.name {
+  @apply font-bold;
+}
+
+/* Email */
+.email {
+  @apply text-[12px];
+}

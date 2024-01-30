@@ -24,19 +24,8 @@ export default function Home() {
           <p className={styles.welcome_text}>
             Welcome back! Please enter your details.
           </p>
+
           <div>
-            <label className={styles.label} htmlFor='email'>
-              Email
-            </label>
-            <input
-              className={styles.input}
-              id='email'
-              placeholder='Enter your email'
-              type='text'
-            />
-          </div>
-          <div>
-            <SubmitBtn className='mb-8' label='Continue' />
             <SignInWithGoogleBtn
               // onClick={() => signIn()}
               label='Sign in with Google'

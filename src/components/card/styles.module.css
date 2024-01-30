@@ -1,0 +1,35 @@
+/* Container */
+.container {
+  @apply border-[1.5px] border-[#E1E1E1] w-[345px] h-[200px] rounded-[1rem] mt-[2rem]
+  p-4;
+}
+
+.header {
+  @apply flex items-center;
+}
+/* Title */
+.title {
+  @apply font-bold;
+}
+
+.notify {
+  @apply w-[15px] h-[15px] bg-green-300 mr-2 rounded-full;
+}
+
+/* Description */
+.description {
+  @apply text-[12px] text-[#aaa] line-clamp-4 my-2;
+}
+
+/* Deadline */
+.deadline {
+  @apply text-[12px] text-[#aaa] font-bold mb-2;
+}
+
+.deadline > span {
+  @apply text-amber-500;
+}
+
+.status {
+  @apply bg-green-300 w-[80px] text-center font-[500] text-[12px] p-1 rounded-[0.8rem];
+}

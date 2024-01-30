@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Task {
+  id           Int      @id @default(autoincrement())
+  task_id      String   @unique
+  title        String
+  status       String
+  dueDate      String
+  description  String
+  isCompleted  Boolean  @default(false)
+  isInProgress Boolean  @default(false)
+  isNew        Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  assigner     User     @relation(fields: [assignerId], references: [id])
+  assignerId   Int
+}
+
+model User {
+  id     Int     @id @default(autoincrement())
+  userId String
+  email  String  @unique
+  name   String?
+  tasks  Task[]
+}

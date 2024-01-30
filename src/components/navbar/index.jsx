@@ -20,7 +20,7 @@ const Navbar = () => {
 
       {/* Route Name */}
       <div>
-        <h1>Dashboard</h1>
+        <h1 className={styles.routeName}>Dashboard</h1>
       </div>
 
       {/* Search Bar */}
