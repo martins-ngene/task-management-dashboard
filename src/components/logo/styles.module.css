@@ -6,5 +6,5 @@
 
 /* Logo */
 .brand {
-  @apply text-[0.8rem] md:text-[1.2rem] font-semibold ml-2;
+  @apply text-[14px] md:text-[1.2rem] font-semibold ml-2;
 }

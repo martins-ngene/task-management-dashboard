@@ -4,12 +4,12 @@
 }
 
 .image {
-  @apply rounded-full;
+  @apply rounded-full w-auto h-auto;
 }
 
 /* Details */
 .details {
-  @apply ml-0 md:ml-4;
+  @apply ml-0 md:ml-4  hidden lg:block;
 }
 /* Name */
 .name {

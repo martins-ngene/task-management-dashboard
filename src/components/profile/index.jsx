@@ -8,6 +8,8 @@ const Profile = () => {
         <Image
           className={styles.image}
           src='/avatar.jpg'
+          alt='avatar'
+          priority
           width={50}
           height={50}
         />

@@ -7,21 +7,30 @@
 }
 
 .header {
-  @apply flex items-center justify-between px-[5rem] my-4 w-full;
+  @apply flex items-center justify-between my-4 w-full px-[2rem] md:px-[3rem] lg:px-[5rem];
 }
 
 .heading {
-  @apply text-[1rem] md:text-[1.5rem] font-bold;
+  @apply text-[1rem] md:text-[1.5rem] font-bold hidden md:block;
 }
 
 .cardContainer {
-  @apply w-full flex items-center justify-between flex-wrap px-[5rem] pb-[5rem];
+  @apply w-full flex items-center justify-center pb-[5rem];
+}
+
+.cardGrid {
+  @apply w-[80%] xl:w-[75%] grid place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
 }
 
 .btnContainer {
-  @apply flex items-center justify-between w-[20%];
+  @apply flex items-center justify-between w-full md:w-[30%] lg:w-[20%];
 }
 
-.select {
+.selectContainer {
   @apply w-[50%];
+}
+
+/* Input */
+.select {
+  @apply lg:text-[1rem] outline-none w-full border border-[#E1E1E1] bg-white rounded-lg h-[32px] px-4;
 }

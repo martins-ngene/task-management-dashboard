@@ -1,7 +1,7 @@
 /** @format */
 /* Navbar Container */
 .container {
-  @apply flex items-center justify-between h-[80px] border-b border-b-[#E1E1E1] px-[5rem];
+  @apply flex items-center justify-between h-[80px] border-b border-b-[#E1E1E1] px-[1rem] md:px-[3rem] lg:px-[5rem];
 }
 
 /* Menu Container */
@@ -10,13 +10,13 @@
 }
 
 .flexContainer {
-  @apply flex items-center justify-between w-[30%];
+  @apply flex items-center justify-between w-[35%];
 }
 /* RouteName  */
 .routeName {
-  @apply font-bold text-[#aaa] text-[20px];
+  @apply font-bold text-[#aaa] text-[20px] hidden lg:block;
 }
 
 .linkContainer {
-  @apply w-[25%] flex items-center justify-between;
+  @apply w-[50%] lg:w-[30%] flex items-center justify-between;
 }
