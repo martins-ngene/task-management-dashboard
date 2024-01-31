@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-import styles from "./AddNewCard.module.css";
+import styles from "./AddNewTask.module.css";
 import { SubmitBtn } from "@/components/buttons";
 import Logo from "@/components/logo";
 import Select from "../customSelect";
 import { CardTypes } from "../constants";
 
-const AddNewCard = ({ closeBtn }) => {
+const AddNewTask = ({ closeBtn }) => {
   // Store the state of the card detaiils
 
   // Initial values for the fields
@@ -120,4 +120,4 @@ const AddNewCard = ({ closeBtn }) => {
   );
 };
 
-export default AddNewCard;
+export default AddNewTask;

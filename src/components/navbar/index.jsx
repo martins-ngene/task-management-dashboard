@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import styles from "./styles.module.css";
 import Menu from "../menu";
 import Logo from "../logo";
-import Input from "../customInput";
 import Profile from "../profile";
 
 const Navbar = () => {
@@ -15,17 +14,9 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   return (
     <div className={styles.container}>
-      {/* Logo */}
-      <Logo />
-
-      {/* Route Name */}
-      <div>
+      <div className={styles.flexContainer}>
+        <Logo />
         <h1 className={styles.routeName}>Dashboard</h1>
-      </div>
-
-      {/* Search Bar */}
-      <div>
-        <Input />
       </div>
 
       <div>

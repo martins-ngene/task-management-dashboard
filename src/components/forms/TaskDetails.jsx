@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
 
-import styles from "./CardDetails.module.css";
+import styles from "./TaskDetails.module.css";
 import { SubmitBtn } from "@/components/buttons";
 import Logo from "@/components/logo";
 import Card from "../card";
 
-const CardDetails = ({ closeBtn }) => {
+const TaskDetails = ({ closeBtn }) => {
   return (
     <div className={styles.container}>
       <div className={styles.form_container}>
@@ -48,4 +48,4 @@ const CardDetails = ({ closeBtn }) => {
   );
 };
 
-export default CardDetails;
+export default TaskDetails;

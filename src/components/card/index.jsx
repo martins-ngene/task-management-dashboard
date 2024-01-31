@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 
-const Card = () => {
+const Card = ({ onClick }) => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -16,7 +16,10 @@ const Card = () => {
       <p className={styles.deadline}>
         <span>Deadline:</span> 11th - 15th August 2023
       </p>
-      <p className={styles.status}>status</p>
+      <div className={styles.cardFooter}>
+        <p className={styles.status}>status</p>
+        <button onClick={onClick}>view</button>
+      </div>
     </div>
   );
 };

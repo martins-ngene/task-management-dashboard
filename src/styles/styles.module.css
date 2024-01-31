@@ -1,0 +1,15 @@
+.container {
+  @apply bg-white;
+}
+
+.body {
+  @apply w-full h-screen flex items-center justify-center;
+}
+
+.body > h1 {
+  @apply text-[1rem] md:text-[1.5rem] font-bold;
+}
+
+.cardContainer {
+  @apply flex flex-wrap items-center justify-between px-[5rem] pb-[5rem];
+}

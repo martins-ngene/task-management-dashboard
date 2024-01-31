@@ -30,6 +30,14 @@
   @apply text-amber-500;
 }
 
+.cardFooter {
+  @apply w-full flex items-center justify-between;
+}
+
+.cardFooter > button {
+  @apply w-[50px] border border-[#050202] text-center font-[500] text-[12px] p-1 rounded-[0.5rem];
+}
+
 .status {
   @apply bg-green-300 w-[80px] text-center font-[500] text-[12px] p-1 rounded-[0.8rem];
 }

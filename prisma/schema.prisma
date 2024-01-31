@@ -30,6 +30,7 @@ model Task {
 model User {
   id     Int     @id @default(autoincrement())
   userId String
+  avatar String
   email  String  @unique
   name   String?
   tasks  Task[]

@@ -1,7 +1,7 @@
 /** @format */
 /* Navbar Container */
 .container {
-  @apply flex items-center justify-around h-[80px] border-b border-b-[#E1E1E1];
+  @apply flex items-center justify-between h-[80px] border-b border-b-[#E1E1E1] px-[3rem];
 }
 
 /* Links Container */
@@ -14,7 +14,10 @@
   @apply relative w-[40px] h-[40px] block md:hidden;
 }
 
+.flexContainer {
+  @apply flex items-center justify-between w-[30%];
+}
 /* RouteName  */
 .routeName {
-  @apply font-medium text-[#aaa] text-[20px];
+  @apply font-bold text-[#aaa] text-[20px];
 }
