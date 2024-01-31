@@ -41,7 +41,7 @@ const TaskDetails = ({ closeBtn }) => {
           </p>
         </div>
         <div>
-          <SubmitBtn className='mb-8' label='Delete Card' />
+          <button>Add</button>
         </div>
       </div>
     </div>

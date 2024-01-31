@@ -1,6 +1,6 @@
 /* Container */
 .container {
-  @apply border-[1.5px] border-[#E1E1E1] w-[345px] h-[200px] rounded-[1rem] mt-[2rem]
+  @apply border-[1.5px] border-[#E1E1E1] w-[345px] h-[200px] rounded-[1rem] mt-[1rem]
   p-4;
 }
 
@@ -32,10 +32,6 @@
 
 .cardFooter {
   @apply w-full flex items-center justify-between;
-}
-
-.cardFooter > button {
-  @apply w-[50px] border border-[#050202] text-center font-[500] text-[12px] p-1 rounded-[0.5rem];
 }
 
 .status {

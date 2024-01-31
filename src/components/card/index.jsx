@@ -1,3 +1,4 @@
+import Button from "../buttons";
 import styles from "./styles.module.css";
 
 const Card = ({ onClick }) => {
@@ -18,7 +19,7 @@ const Card = ({ onClick }) => {
       </p>
       <div className={styles.cardFooter}>
         <p className={styles.status}>status</p>
-        <button onClick={onClick}>view</button>
+        <Button onClick={onClick} isFilled={false} label='View' />
       </div>
     </div>
   );

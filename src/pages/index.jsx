@@ -6,6 +6,9 @@ import Card from "@/components/card";
 import Modal from "@/components/modal";
 import AddNewTask from "@/components/forms/AddNewTask";
 import TaskDetails from "@/components/forms/TaskDetails";
+import Select from "@/components/customSelect";
+import { taskStatus } from "@/components/constants";
+import Button from "@/components/buttons";
 
 const Dashboard = ({ data = true }) => {
   const [taskDetails, setTaskdetails] = useState(false);
@@ -24,17 +27,23 @@ const Dashboard = ({ data = true }) => {
         </Modal>
       )}
       <Navbar />
-      <div>
-        <div></div>
-        <div></div>
-      </div>
+      <header className={styles.header}>
+        <h1 className={styles.heading}>Tasks</h1>
+        <div className={styles.btnContainer}>
+          <div className={styles.select}>
+            <Select id='status' itemsList={taskStatus} defaultValue='All' />
+          </div>
+          <Button isFilled={true} label='Add Task' />
+        </div>
+      </header>
       <>
         {!data ? (
           <div className={styles.body}>
-            <h1>No Tasks Available</h1>
+            <h1 className={styles.heading}>No Tasks Available</h1>
           </div>
         ) : (
           <div className={styles.cardContainer}>
+            <Card onClick={() => setTaskdetails(!taskDetails)} />
             <Card onClick={() => setTaskdetails(!taskDetails)} />
             <Card onClick={() => setTaskdetails(!taskDetails)} />
             <Card onClick={() => setTaskdetails(!taskDetails)} />

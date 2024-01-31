@@ -6,10 +6,22 @@
   @apply w-full h-screen flex items-center justify-center;
 }
 
-.body > h1 {
+.header {
+  @apply flex items-center justify-between px-[5rem] my-4 w-full;
+}
+
+.heading {
   @apply text-[1rem] md:text-[1.5rem] font-bold;
 }
 
 .cardContainer {
-  @apply flex flex-wrap items-center justify-between px-[5rem] pb-[5rem];
+  @apply w-full flex items-center justify-between flex-wrap px-[5rem] pb-[5rem];
+}
+
+.btnContainer {
+  @apply flex items-center justify-between w-[20%];
+}
+
+.select {
+  @apply w-[50%];
 }
