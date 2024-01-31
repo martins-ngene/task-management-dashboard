@@ -3,17 +3,14 @@ import prisma from "../../../lib/prisma";
 export default async function handler(req, res) {
   try {
     if (req.method === "POST") {
-      const { email } = req.body;
-      const tasks = await prisma.user.findUnique({
+      const { taskId } = req.body;
+      const task = await prisma.task.delete({
         where: {
-          email: email,
-        },
-        include: {
-          tasks: true,
+          task_id: taskId,
         },
       });
 
-      res.status(200).json({ tasks: tasks, message: "Successful Operation!" });
+      res.status(200).json({ tasks: task, message: "Successful Operation!" });
     }
   } catch (error) {
     res.status(504).json({

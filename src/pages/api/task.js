@@ -3,13 +3,17 @@ import prisma from "../../../lib/prisma";
 export default async function handler(req, res) {
   try {
     if (req.method === "POST") {
-      const { email } = req.body;
+      const { email, taskId } = req.body;
       const tasks = await prisma.user.findUnique({
         where: {
           email: email,
         },
         include: {
-          tasks: true,
+          tasks: {
+            where: {
+              task_id: taskId,
+            },
+          },
         },
       });
 

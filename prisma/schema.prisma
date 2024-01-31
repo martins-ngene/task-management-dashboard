@@ -15,7 +15,6 @@ model Task {
   id           Int      @id @default(autoincrement())
   task_id      String   @unique
   title        String
-  status       String
   dueDate      String
   description  String
   isCompleted  Boolean  @default(false)
