@@ -3,15 +3,21 @@ import prisma from "../../../lib/prisma";
 export default async function handler(req, res) {
   try {
     if (req.method === "POST") {
-      const { name, email, userId, avatar } = req.body;
-      await prisma.user.create({
-        data: {
-          name: name,
-          email: email,
-          userId: userId,
-          avatar: avatar,
-        },
-      });
+      const { email } = req.body;
+
+      console.log(email);
+
+      const usersInDB = await prisma.user.findMany();
+
+      const isUserRegistered = usersInDB.some(user => user.email === email);
+
+      if (!isUserRegistered) {
+        await prisma.user.create({
+          data: {
+            email: email,
+          },
+        });
+      }
 
       const allUsers = await prisma.user.findMany();
 

@@ -1,13 +1,13 @@
 import Image from "next/image";
 
 import styles from "./styles.module.css";
-const Profile = () => {
+const Profile = ({ userDetails }) => {
   return (
     <div className={styles.container}>
       <div>
         <Image
           className={styles.image}
-          src='/avatar.jpg'
+          src={userDetails.image}
           alt='avatar'
           priority
           width={50}
@@ -15,8 +15,8 @@ const Profile = () => {
         />
       </div>
       <div className={styles.details}>
-        <h2 className={styles.name}>John Doe</h2>
-        <p className={styles.email}>johndoe@email.com</p>
+        <h2 className={styles.name}>{userDetails.name}</h2>
+        <p className={styles.email}>{userDetails.email}</p>
       </div>
     </div>
   );

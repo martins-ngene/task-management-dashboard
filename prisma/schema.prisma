@@ -12,25 +12,20 @@ datasource db {
 }
 
 model Task {
-  id           Int      @id @default(autoincrement())
-  task_id      String   @unique
-  title        String
-  dueDate      String
-  description  String
-  isCompleted  Boolean  @default(false)
-  isInProgress Boolean  @default(false)
-  isNew        Boolean  @default(false)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  assigner     User     @relation(fields: [assignerId], references: [id])
-  assignerId   Int
+  id          Int      @id @default(autoincrement())
+  task_id     String   @unique
+  title       String
+  deadline    String
+  description String
+  status      String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  assigner    User     @relation(fields: [assignerId], references: [id])
+  assignerId  Int
 }
 
 model User {
-  id     Int     @id @default(autoincrement())
-  userId String
-  avatar String
-  email  String  @unique
-  name   String?
-  tasks  Task[]
+  id Int @id @default(autoincrement())
+  email String @unique
+  tasks Task[]
 }

@@ -3,38 +3,38 @@ import prisma from "../../../lib/prisma";
 export default async function handler(req, res) {
   try {
     if (req.method === "POST") {
-      const {
-        email,
-        title,
-        task_id,
-        dueDate,
-        description,
-        isNew,
-        isCompleted,
-        isInProgress,
-      } = req.body;
-      const newTask = await prisma.user.update({
-        where: {
-          email: email,
-        },
-        data: {
-          tasks: {
-            create: {
-              title: title,
-              task_id: task_id,
-              dueDate: dueDate,
-              description: description,
-              isNew: isNew,
-              isCompleted: isCompleted,
-              isInProgress: isInProgress,
+      const { email, task_id, title, deadline, description, status } = req.body;
+
+      // Get All Tasks From DB
+      const taskInDB = await prisma.task.findMany();
+
+      // Check if task exists
+      const isTaskInDB = taskInDB.some(task => task.task_id === task_id);
+
+      console.log(isTaskInDB); 
+
+      if (!isTaskInDB) {
+        const newTask = await prisma.user.update({
+          where: {
+            email: email,
+          },
+          data: {
+            tasks: {
+              create: {
+                task_id: task_id,
+                title: title,
+                deadline: deadline,
+                description: description,
+                status: status,
+              },
             },
           },
-        },
-      });
+        });
 
-      res
-        .status(200)
-        .json({ newTask: newTask, message: "Successful Operation!" });
+        res
+          .status(200)
+          .json({ newTask: newTask, message: "Task Added Successfully!" });
+      }
     }
   } catch (error) {
     res.status(504).json({

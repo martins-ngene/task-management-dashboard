@@ -3,26 +3,16 @@ import prisma from "../../../lib/prisma";
 export default async function handler(req, res) {
   try {
     if (req.method === "POST") {
-      const {
-        taskId,
-        title,
-        dueDate,
-        description,
-        isNew,
-        isCompleted,
-        isInProgress,
-      } = req.body;
+      const { task_id, title, deadline, description, status } = req.body;
       const tasks = await prisma.task.update({
         where: {
-          task_id: taskId,
+          task_id: task_id,
         },
         data: {
           title: title,
-          dueDate: dueDate,
+          deadline: deadline,
           description: description,
-          isNew: isNew,
-          isCompleted: isCompleted,
-          isInProgress: isInProgress,
+          status: status,
         },
       });
 

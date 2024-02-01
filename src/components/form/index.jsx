@@ -4,11 +4,11 @@ import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { v4 as task_id } from "uuid";
 
 import styles from "./styles.module.css";
 import Button from "@/components/buttons";
 import Logo from "@/components/logo";
-import { sendMessage } from "../../../helpers";
 
 const schema = yup
   .object({
@@ -18,7 +18,15 @@ const schema = yup
   })
   .required();
 
-const Form = ({ closeBtn, isEdited = false }) => {
+const Form = ({
+  closeBtn,
+  isEdited,
+  isAdd,
+  isEdit,
+  addMutateFunc,
+  editMutateFunc,
+}) => {
+  // Form Validation Resources
   const {
     register,
     reset,
@@ -28,14 +36,49 @@ const Form = ({ closeBtn, isEdited = false }) => {
     resolver: yupResolver(schema),
   });
 
-  const mutation = useMutation({ mutationFn: sendMessage });
+  // mutation Query
+  const mutation = useMutation({
+    mutationFn: isAdd ? addMutateFunc : editMutateFunc,
+  });
 
-  const submitForm = contactInfo => {
-    // // Send form data to endpoint
-    // mutation.mutate(contactInfo);
-    // // Clear the form
-    // reset();
-    console.log(contactInfo);
+  // Submit  Form Function
+  const submitForm = formData => {
+    // Access LocalStorage
+    if (typeof window !== "undefined") {
+      const email = localStorage.getItem("userEmail");
+      // console.log(email);
+
+      if (isAdd) {
+        const addTask = {
+          email: email,
+          task_id: task_id(),
+          title: formData.title,
+          deadline: formData.deadline,
+          description: formData.description,
+          status: formData.status,
+        };
+        // Send form data to endpoint
+        mutation.mutate(addTask);
+        // Clear the form
+        reset();
+        console.log(addTask);
+      }
+
+      if (isEdit) {
+        const editTask = {
+          // task_id: task_id(),
+          title: formData.title,
+          deadline: formData.deadline,
+          description: formData.description,
+          status: formData.status,
+        };
+        // Send form data to endpoint
+        mutation.mutate(editTask);
+        // Clear the form
+        reset();
+        console.log(editTask);
+      }
+    }
   };
 
   mutation.isLoading
@@ -61,11 +104,14 @@ const Form = ({ closeBtn, isEdited = false }) => {
         </div>
 
         <form className={styles.form} onSubmit={handleSubmit(submitForm)}>
+          {/* Task Title */}
           <div className={styles.title}>
             <label className={styles.label} htmlFor='title'>
               Title
             </label>
             <input
+              //  defaultValue={"howfar"}
+              // disabled={true}
               className={styles.input}
               id='title'
               placeholder='Enter the title'
@@ -75,11 +121,14 @@ const Form = ({ closeBtn, isEdited = false }) => {
             />
             <p className={styles.error}>{errors.title?.message}</p>
           </div>
+          {/* Task Deadline */}
           <div className={styles.deadline}>
             <label className={styles.label} htmlFor='deadline'>
               Deadline
             </label>
             <input
+              //  defaultValue={"howfar"}
+              // disabled={true}
               className={styles.input}
               id='deadline'
               placeholder='Enter task deadline'
@@ -89,11 +138,14 @@ const Form = ({ closeBtn, isEdited = false }) => {
             />
             <p className={styles.error}>{errors.deadline?.message}</p>
           </div>
+          {/* Task Status */}
           <div className={styles.status}>
             <label className={styles.label} htmlFor='deadline'>
               Status
             </label>
             <select
+              //  defaultValue={"howfar"}
+              // disabled={true}
               {...register("status")}
               className={styles.input}
               name='status'
@@ -103,6 +155,7 @@ const Form = ({ closeBtn, isEdited = false }) => {
               <option value='completed'>Completed</option>
             </select>
           </div>
+          {/* Task Description */}
           <div className={styles.description}>
             <label htmlFor='description' className={styles.textLabel}>
               Description
@@ -111,15 +164,30 @@ const Form = ({ closeBtn, isEdited = false }) => {
               className={styles.textArea}
               name='description'
               id='description'
+              // defaultValue={"howfar"}
+              // disabled={true}
               placeholder='Enter your description'
               {...register("description")}></textarea>
             <p className={styles.error}>{errors.description?.message}</p>
           </div>
           <div className={styles.btnContainer}>
-            <Button isFilled={true} label='Delete' />
-            <Button type='submit' isFilled={false} label='Add' />
-            {/* <Button isFilled={true} label='Reset' /> */}
-            {/* <Button isFilled={false} label={isEdited ? "Sign out" : "Sign in"} /> */}
+            {isEdit && (
+              <>
+                <Button isFilled={true} label='Delete' />
+                <Button isFilled={false} label={isEdited ? "Save" : "Edit"} />
+              </>
+            )}
+            {isAdd && (
+              <>
+                <Button type='submit' isFilled={false} label='Add' />
+                <Button
+                  type='reset'
+                  onClick={() => reset()}
+                  isFilled={true}
+                  label='Reset'
+                />
+              </>
+            )}
           </div>
         </form>
       </div>
