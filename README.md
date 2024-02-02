@@ -12,6 +12,12 @@ There are some requirements to make your project setup successful. Be sure to ha
 
 I have created a short clip to show you what the application is like. Please see here on [youtube](https://youtu.be/lDYFjSRiHaI)
 
+## Application Design Choices
+
+Building applications transcends making it work on your machine. There are three most widely used operating systems and your application should work on them. Also, different users prefer different browsers and different browsers have different engines that compile JavaScript like Chrome uses the V8 engine and FireFox uses Spider Monkey. With these in mind, I have chosen specific tools to ensure the least possible amount of compatibility issues while aimimg for zero.
+
+For the technologies I used Next.js with JavaScript and Tailwind CSS for styling. I utilized Next.js as a fullstack framework to build both my user interface as a single page application (SPA) and API endpoints. Postgresql and Prisma seamlessly integrates with Next.js ensuring together with Next-Auth for authentication that the tables are properly related and users are well authorized. For the application state I resulted to localStorage for a smooth user experience. Endpoints where consumed with React Query for caching and to avoid stale data.
+
 ## Getting Started
 
 1. Create a `.env` file with credentials as shown below:
