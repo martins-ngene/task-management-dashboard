@@ -14,7 +14,9 @@ export default async function handler(req, res) {
       },
     });
 
-    res.status(200).json({ tasks: tasks, message: "Successful Operation!" });
+    res
+      .status(200)
+      .json({ tasks: tasks ? tasks : [], message: "Successful Operation!" });
   } catch (error) {
     res.status(504).json({
       name: error.name,

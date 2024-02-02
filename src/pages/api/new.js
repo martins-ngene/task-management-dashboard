@@ -11,8 +11,6 @@ export default async function handler(req, res) {
       // Check if task exists
       const isTaskInDB = taskInDB.some(task => task.task_id === task_id);
 
-      console.log(isTaskInDB); 
-
       if (!isTaskInDB) {
         const newTask = await prisma.user.update({
           where: {

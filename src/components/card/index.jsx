@@ -1,7 +1,14 @@
 import Button from "../buttons";
 import styles from "./styles.module.css";
 
-const Card = ({ onClick, title, description, deadline, status }) => {
+const Card = ({
+  onClick,
+  title,
+  description,
+  deadline,
+  status,
+  deleteTask,
+}) => {
   return (
     <div className={styles.container}>
       <div className={styles.flexContainer}>
@@ -16,7 +23,16 @@ const Card = ({ onClick, title, description, deadline, status }) => {
       </div>
       <div className={styles.cardFooter}>
         <p className={styles.status}>{status}</p>
-        <Button onClick={onClick} isFilled={false} label='View' />
+        <div>
+          <Button
+            className='mr-4'
+            type='button'
+            isFilled={true}
+            label='Delete'
+            onClick={deleteTask}
+          />
+          <Button onClick={onClick} isFilled={false} label='View' />
+        </div>
       </div>
     </div>
   );

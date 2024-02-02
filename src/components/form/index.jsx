@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
@@ -20,11 +20,11 @@ const schema = yup
 
 const Form = ({
   closeBtn,
-  isEdited,
   isAdd,
   isEdit,
   addMutateFunc,
   editMutateFunc,
+  savedTask,
 }) => {
   // Form Validation Resources
   const {
@@ -36,6 +36,9 @@ const Form = ({
     resolver: yupResolver(schema),
   });
 
+  // Control edit state
+  const [isEdited, setIsEdited] = useState(false);
+
   // mutation Query
   const mutation = useMutation({
     mutationFn: isAdd ? addMutateFunc : editMutateFunc,
@@ -46,7 +49,7 @@ const Form = ({
     // Access LocalStorage
     if (typeof window !== "undefined") {
       const email = localStorage.getItem("userEmail");
-      // console.log(email);
+      const taskId = window.localStorage.getItem("taskId");
 
       if (isAdd) {
         const addTask = {
@@ -61,12 +64,11 @@ const Form = ({
         mutation.mutate(addTask);
         // Clear the form
         reset();
-        console.log(addTask);
       }
 
       if (isEdit) {
         const editTask = {
-          // task_id: task_id(),
+          task_id: taskId,
           title: formData.title,
           deadline: formData.deadline,
           description: formData.description,
@@ -76,18 +78,10 @@ const Form = ({
         mutation.mutate(editTask);
         // Clear the form
         reset();
-        console.log(editTask);
       }
     }
   };
 
-  mutation.isLoading
-    ? "Message is sending ..."
-    : mutation.isSuccess
-    ? "Message is sent successfully"
-    : mutation.isError
-    ? "Please reload the page and try again"
-    : "";
   return (
     <div className={styles.container}>
       <div className={styles.form_container}>
@@ -110,8 +104,7 @@ const Form = ({
               Title
             </label>
             <input
-              //  defaultValue={"howfar"}
-              // disabled={true}
+              defaultValue={isEdit && savedTask.title}
               className={styles.input}
               id='title'
               placeholder='Enter the title'
@@ -127,8 +120,7 @@ const Form = ({
               Deadline
             </label>
             <input
-              //  defaultValue={"howfar"}
-              // disabled={true}
+              defaultValue={isEdit && savedTask.deadline}
               className={styles.input}
               id='deadline'
               placeholder='Enter task deadline'
@@ -144,8 +136,7 @@ const Form = ({
               Status
             </label>
             <select
-              //  defaultValue={"howfar"}
-              // disabled={true}
+              defaultValue={isEdit && savedTask.status}
               {...register("status")}
               className={styles.input}
               name='status'
@@ -164,8 +155,7 @@ const Form = ({
               className={styles.textArea}
               name='description'
               id='description'
-              // defaultValue={"howfar"}
-              // disabled={true}
+              defaultValue={isEdit && savedTask.description}
               placeholder='Enter your description'
               {...register("description")}></textarea>
             <p className={styles.error}>{errors.description?.message}</p>
@@ -173,8 +163,11 @@ const Form = ({
           <div className={styles.btnContainer}>
             {isEdit && (
               <>
-                <Button isFilled={true} label='Delete' />
-                <Button isFilled={false} label={isEdited ? "Save" : "Edit"} />
+                <Button
+                  onClick={() => setIsEdited(!isEdited)}
+                  isFilled={false}
+                  label={isEdited ? "Save" : "Edit"}
+                />
               </>
             )}
             {isAdd && (

@@ -17,7 +17,7 @@
 }
 
 .notify {
-  @apply w-[15px] h-[15px] bg-green-300 mr-2 rounded-full;
+  @apply bg-amber-300 w-[15px] h-[15px] mr-2 rounded-full;
 }
 
 /* Description */
@@ -39,5 +39,5 @@
 }
 
 .status {
-  @apply bg-green-300 w-[80px] text-center font-[500] text-[12px] p-1 rounded-[0.8rem];
+  @apply w-[80px] bg-amber-300 text-center font-[500] text-[12px] p-1 rounded-[0.8rem];
 }

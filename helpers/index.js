@@ -18,6 +18,26 @@ export const addTask = async formData => {
   return response.json();
 };
 
+export const deleteTask = async formData => {
+  // Perform the mutation logic, e.g., make an API request to update the user
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL_BACKEND}/delete`,
+    {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to send message");
+  }
+
+  return response.json();
+};
+
 export const editTask = async formData => {
   // Perform the mutation logic, e.g., make an API request to update the user
   const response = await fetch(
