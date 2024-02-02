@@ -1,28 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Applications Home Page](/public/banner.png)
 
 ## Getting Started
 
-First, run the development server:
+1. Create a `.env` file with credentials as shown below:
+
+```bash
+DATABASE_URL=postgresql://username:password@localhost:5432/database_name?schema=public
+GITHUB_CLIENT_ID="Your GITHUB_CLIENT_ID Here"
+GITHUB_CLIENT_SECRET="Your GITHUB_CLIENT_SECRET Here"
+NEXT_PUBLIC_API_URL_BACKEND=http://localhost:3000/api
+
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+
+```
+
+3. Start the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
 

@@ -143,14 +143,14 @@ const Dashboard = () => {
               />
             </div>
           </header>
-          {data.tasks.tasks.length === 0 ? (
+          {data?.tasks.tasks?.length === 0 ? (
             <div className={styles.body}>
               <h1 className={styles.heading}>No Tasks Available</h1>
             </div>
           ) : (
             <div className={styles.cardContainer}>
               <div className={styles.cardGrid}>
-                {data.tasks.tasks &&
+                {data?.tasks.tasks &&
                   filterTasks(data.tasks.tasks, filter).map(task => {
                     return (
                       <Card

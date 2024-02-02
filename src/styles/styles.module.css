@@ -11,7 +11,7 @@
 }
 
 .heading {
-  @apply text-[1rem] md:text-[1.5rem] font-bold hidden md:block;
+  @apply text-[1rem] md:text-[1.5rem] font-bold;
 }
 
 .cardContainer {
