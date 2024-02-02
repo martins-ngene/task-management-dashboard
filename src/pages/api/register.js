@@ -5,8 +5,6 @@ export default async function handler(req, res) {
     if (req.method === "POST") {
       const { email } = req.body;
 
-      console.log(email);
-
       const usersInDB = await prisma.user.findMany();
 
       const isUserRegistered = usersInDB.some(user => user.email === email);

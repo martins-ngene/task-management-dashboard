@@ -36,9 +36,6 @@ const Form = ({
     resolver: yupResolver(schema),
   });
 
-  // Control edit state
-  const [isEdited, setIsEdited] = useState(false);
-
   // mutation Query
   const mutation = useMutation({
     mutationFn: isAdd ? addMutateFunc : editMutateFunc,
@@ -163,11 +160,7 @@ const Form = ({
           <div className={styles.btnContainer}>
             {isEdit && (
               <>
-                <Button
-                  onClick={() => setIsEdited(!isEdited)}
-                  isFilled={false}
-                  label={isEdited ? "Save" : "Edit"}
-                />
+                <Button isFilled={false} label='Edit' />
               </>
             )}
             {isAdd && (

@@ -10,7 +10,7 @@ There are some requirements to make your project setup successful. Be sure to ha
 
 ## Video Demo
 
-I have created a short clip to show you what the application is like. Please see here on [youtube](https://www.youtube.com/)
+I have created a short clip to show you what the application is like. Please see here on [youtube](https://youtu.be/lDYFjSRiHaI)
 
 ## Getting Started
 
