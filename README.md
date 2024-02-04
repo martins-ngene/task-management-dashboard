@@ -14,9 +14,9 @@ I have created a short clip to show you what the application is like. Please see
 
 ## Application Design Choices
 
-Building applications transcends making it work on your machine. There are three most widely used operating systems and your application should work on them. Also, different users prefer different browsers and different browsers have different engines that compile JavaScript like Chrome uses the V8 engine and FireFox uses Spider Monkey. With these in mind, I have chosen specific tools to ensure the least possible amount of compatibility issues while aimimg for zero.
+Building applications transcends making it work on your machine. There are three most widely used operating systems and your application should work on them. Also, different users prefer different browsers and different browsers have different engines that interpret JavaScript Chrome uses the V8 engine and FireFox uses Spider Monkey. With these in mind, I have chosen specific tools to ensure the least possible compatibility issues while aiming for zero.
 
-For the technologies I used Next.js with JavaScript and Tailwind CSS for styling. I utilized Next.js as a fullstack framework to build both my user interface as a single page application (SPA) and API endpoints. Postgresql and Prisma seamlessly integrates with Next.js ensuring together with Next-Auth for authentication that the tables are properly related and users are well authorized. For the application state I resulted to localStorage for a smooth user experience. Endpoints where consumed with React Query for caching and to avoid stale data.
+I used Next.js with JavaScript and Tailwind CSS for styling the technologies. I utilized Next.js as a full-stack framework to build my user interface as a single-page application (SPA) and API endpoints. Postgresql and Prisma seamlessly integrate with Next.js ensuring together with Next-Auth for authentication that the tables are properly related and users are well authorized. For the application state, I resulted in localStorage for a smooth user experience. Endpoints were consumed with React Query for caching and to avoid stale data.
 
 ## Getting Started
 
@@ -39,7 +39,7 @@ yarn install
 
 ```
 
-3. Create your postgresql database instance:
+3. Create your Postgresql database instance:
 
 ```bash
 prisma migrate dev
