@@ -11,10 +11,6 @@ WORKDIR /app
 
 # Set production environment
 ENV NODE_ENV="production"
-ENV NEXT_PUBLIC_GITHUB_CLIENT_ID="Ov23lifez9X3R4Vux13k"
-ENV NEXT_PUBLIC_GITHUB_CLIENT_SECRET="218e47fd9879f12d645ee1421e847a8d57e66bb1"
-ENV NEXT_PUBLIC_API_URL_BACKEND=http://localhost:3000/api
-
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
