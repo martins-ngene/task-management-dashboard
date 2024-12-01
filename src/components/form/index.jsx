@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { v4 as task_id } from "uuid";
+import { useRouter } from "next/navigation";
 
 import styles from "./styles.module.css";
 import Button from "@/components/buttons";
@@ -41,8 +42,11 @@ const Form = ({
     mutationFn: isAdd ? addMutateFunc : editMutateFunc,
   });
 
+  // Refetch Data After Change
+  const router = useRouter();
+
   // Submit  Form Function
-  const submitForm = formData => {
+  const submitForm = (formData) => {
     // Access LocalStorage
     if (typeof window !== "undefined") {
       const email = localStorage.getItem("userEmail");
@@ -76,6 +80,7 @@ const Form = ({
         // Clear the form
         reset();
       }
+      // router.refresh();
     }
   };
 
@@ -86,8 +91,8 @@ const Form = ({
           <Logo />
           <button onClick={closeBtn}>
             <Image
-              src='/close.svg'
-              alt='Cancel Action button'
+              src="/close.svg"
+              alt="Cancel Action button"
               width={25}
               height={25}
             />
@@ -97,80 +102,82 @@ const Form = ({
         <form className={styles.form} onSubmit={handleSubmit(submitForm)}>
           {/* Task Title */}
           <div className={styles.title}>
-            <label className={styles.label} htmlFor='title'>
+            <label className={styles.label} htmlFor="title">
               Title
             </label>
             <input
               defaultValue={isEdit && savedTask.title}
               className={styles.input}
-              id='title'
-              placeholder='Enter the title'
-              type='text'
-              name='title'
+              id="title"
+              placeholder="Enter the title"
+              type="text"
+              name="title"
               {...register("title")}
             />
             <p className={styles.error}>{errors.title?.message}</p>
           </div>
           {/* Task Deadline */}
           <div className={styles.deadline}>
-            <label className={styles.label} htmlFor='deadline'>
+            <label className={styles.label} htmlFor="deadline">
               Deadline
             </label>
             <input
               defaultValue={isEdit && savedTask.deadline}
               className={styles.input}
-              id='deadline'
-              placeholder='Enter task deadline'
-              type='date'
-              name='deadline'
+              id="deadline"
+              placeholder="Enter task deadline"
+              type="date"
+              name="deadline"
               {...register("deadline")}
             />
             <p className={styles.error}>{errors.deadline?.message}</p>
           </div>
           {/* Task Status */}
           <div className={styles.status}>
-            <label className={styles.label} htmlFor='deadline'>
+            <label className={styles.label} htmlFor="deadline">
               Status
             </label>
             <select
               defaultValue={isEdit && savedTask.status}
               {...register("status")}
               className={styles.input}
-              name='status'
-              id='status'>
-              <option value='new'>New</option>
-              <option value='ongoing'>Ongoing</option>
-              <option value='completed'>Completed</option>
+              name="status"
+              id="status"
+            >
+              <option value="new">New</option>
+              <option value="ongoing">Ongoing</option>
+              <option value="completed">Completed</option>
             </select>
           </div>
           {/* Task Description */}
           <div className={styles.description}>
-            <label htmlFor='description' className={styles.textLabel}>
+            <label htmlFor="description" className={styles.textLabel}>
               Description
             </label>
             <textarea
               className={styles.textArea}
-              name='description'
-              id='description'
+              name="description"
+              id="description"
               defaultValue={isEdit && savedTask.description}
-              placeholder='Enter your description'
-              {...register("description")}></textarea>
+              placeholder="Enter your description"
+              {...register("description")}
+            ></textarea>
             <p className={styles.error}>{errors.description?.message}</p>
           </div>
           <div className={styles.btnContainer}>
             {isEdit && (
               <>
-                <Button isFilled={false} label='Edit' />
+                <Button isFilled={false} label="Edit" />
               </>
             )}
             {isAdd && (
               <>
-                <Button type='submit' isFilled={false} label='Add' />
+                <Button type="submit" isFilled={false} label="Add" />
                 <Button
-                  type='reset'
+                  type="reset"
                   onClick={() => reset()}
                   isFilled={true}
-                  label='Reset'
+                  label="Reset"
                 />
               </>
             )}

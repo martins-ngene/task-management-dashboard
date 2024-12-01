@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import Head from "next/head";
+import { useRouter } from "next/navigation";
 
 import Navbar from "@/components/navbar";
 import styles from "@/styles/styles.module.css";
@@ -26,6 +27,9 @@ const Dashboard = () => {
   const mutation = useMutation({
     mutationFn: deleteTask,
   });
+
+  // Refetch Data After Change
+  const router = useRouter();
 
   // Switch form State
   const [formSwitcher, setFormSwitcher] = useState("");
@@ -55,7 +59,7 @@ const Dashboard = () => {
     />,
   ];
 
-  const setTaskId = task_id => {
+  const setTaskId = (task_id) => {
     if (typeof window !== "undefined") {
       const taskId = window.localStorage.getItem("taskId");
 
@@ -72,11 +76,11 @@ const Dashboard = () => {
 
   // Filter Tasks By Name
   const getTask = (data, searchTerm) => {
-    const newData = data.filter(item => item.task_id === searchTerm);
+    const newData = data.filter((item) => item.task_id === searchTerm);
     return newData[0];
   };
 
-  const viewTask = task_id => {
+  const viewTask = (task_id) => {
     setTaskId(task_id);
 
     if (typeof window !== "undefined") {
@@ -87,7 +91,7 @@ const Dashboard = () => {
     setFormSwitcher(2);
   };
 
-  const deleteATask = task_id => {
+  const deleteATask = (task_id) => {
     setTaskId(task_id);
     if (typeof window !== "undefined") {
       const taskId = window.localStorage.getItem("taskId");
@@ -96,6 +100,7 @@ const Dashboard = () => {
         // Send form data to endpoint
         mutation.mutate({ task_id: taskId });
       }
+      // router.refresh();
     }
   };
 
@@ -104,7 +109,7 @@ const Dashboard = () => {
     if (searchTerm === "all") {
       return data;
     }
-    const newData = data.filter(item =>
+    const newData = data.filter((item) =>
       item.status.toLowerCase().includes(searchTerm.toLowerCase())
     );
     return newData;
@@ -126,20 +131,21 @@ const Dashboard = () => {
             <div className={styles.btnContainer}>
               <div className={styles.selectContainer}>
                 <select
-                  onChange={e => setFilter(e.target.value)}
+                  onChange={(e) => setFilter(e.target.value)}
                   className={styles.select}
-                  name='status'
-                  id='status'>
-                  <option value='all'>All</option>
-                  <option value='new'>New</option>
-                  <option value='ongoing'>Ongoing</option>
-                  <option value='completed'>Completed</option>
+                  name="status"
+                  id="status"
+                >
+                  <option value="all">All</option>
+                  <option value="new">New</option>
+                  <option value="ongoing">Ongoing</option>
+                  <option value="completed">Completed</option>
                 </select>
               </div>
               <Button
                 onClick={() => setFormSwitcher(1)}
                 isFilled={true}
-                label='Add Task'
+                label="Add Task"
               />
             </div>
           </header>
@@ -151,7 +157,7 @@ const Dashboard = () => {
             <div className={styles.cardContainer}>
               <div className={styles.cardGrid}>
                 {data?.tasks.tasks &&
-                  filterTasks(data.tasks.tasks, filter).map(task => {
+                  filterTasks(data.tasks.tasks, filter).map((task) => {
                     return (
                       <Card
                         title={task.title}
